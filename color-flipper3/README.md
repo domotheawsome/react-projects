@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# Color Flipper
+
+This is a simple app that flips background color upon click. This is good practice in basic React state.
+
+#### Deployed App: https://color-flipper-8jbr8qgqk-domotheawsome.vercel.app/ 
+
+
+### To run the app on your local machine, follow the CRA-generated instructions below.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
