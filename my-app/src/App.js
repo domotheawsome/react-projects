@@ -15,15 +15,19 @@ function App() {
 
   const [dialog, setDialog] = React.useState(false)
   const [formData, setFormData] = React.useState(initialFormData)
+  const [errorMessage, setErrorMessage] = React.useState(false)
   const [cards, setCards] = React.useState([])
 
 
   function addCard(e) {
     e.preventDefault() 
 
-    setCards(prevCards => [...prevCards, {nextId: cards.length, url: formData.url, caption: formData.caption}])
-    
-    setFormData(initialFormData)
+    if(formData.url === "" || formData.caption === "") {
+      setErrorMessage(prevErrorMessage=>!prevErrorMessage)
+    } else {
+      setCards(prevCards => [...prevCards, {nextId: cards.length, url: formData.url, caption: formData.caption}])
+      setFormData(initialFormData)
+    }
   }
 
   function removeCard(i) {
@@ -32,8 +36,6 @@ function App() {
     ))
   }
 
-  console.log(formData)
-  console.log(cards)
 
   return (
     <div>
@@ -46,6 +48,8 @@ function App() {
             setDialog={setDialog}
             formData={formData}
             setFormData={setFormData}
+            errorMessage={errorMessage}
+            setErrorMessage={setErrorMessage}
             addCard={addCard}
           />
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Card(props) {
 
-    console.log(props.nextId)
+
     return(
         <div className='card--container'>
             <img src={props.url} className="card--img" alt="user input" />

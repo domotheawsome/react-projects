@@ -12,6 +12,7 @@ body {
 
 .form--div {
     margin-left: 20px;
+    width: 50%
     
 }
 
@@ -106,4 +107,8 @@ nav {
     display: flex;
     gap: 15px;
 
+}
+
+.error {
+    margin-top: 10px;
 }

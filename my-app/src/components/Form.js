@@ -18,6 +18,7 @@ export default function Form(props) {
         props.setFormData(prevFormData => {return {
             ...prevFormData, [name]: value
         }})
+        props.setErrorMessage(false)
     }
 
     function handleCancel(e) {
@@ -25,20 +26,7 @@ export default function Form(props) {
         props.setFormData(props.initialFormData)
         props.setDialog(prevDialog=>!prevDialog)
     }
-/*
-    function handleAccept(e) {
-        e.preventDefault()
-        return (
-            <h1>hi</h1>
-        )
-        
-        if( props.formData.url !== "") {
-            return props.addCard
-        } else {
-            return <h1>incorrect</h1>
-        }
-    }
-*/
+
 
     return(
         <div>
@@ -84,6 +72,9 @@ export default function Form(props) {
                             Cancel
                         </button>
                     </div>
+                    {props.errorMessage && 
+                        <div class="alert alert-danger error " role="alert">You must enter both a URL and a caption. </div>
+                    }
                 </form>
             
             }
