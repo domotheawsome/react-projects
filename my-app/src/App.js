@@ -9,32 +9,31 @@ import Card from './components/Card'
 
 function App() {
 
-  const initialFormData = {url: "", caption: ""}
+  let nextId = 0
+
+  const initialFormData = {nextId: nextId, url: "", caption: ""}
 
   const [dialog, setDialog] = React.useState(false)
   const [formData, setFormData] = React.useState(initialFormData)
   const [cards, setCards] = React.useState([])
 
-  console.log(formData)
 
   function addCard(e) {
-    e.preventDefault()    
-    setCards(prevCards => [...prevCards, formData])
+    e.preventDefault() 
+
+    setCards(prevCards => [...prevCards, {nextId: cards.length, url: formData.url, caption: formData.caption}])
+    
     setFormData(initialFormData)
   }
 
-  function renderCard() {
-      cards.map(i => (
-      
-        <Card 
-          key={i.id}
-          url={i.url}
-          caption={i.caption}
-        />
-      ))
+  function removeCard(i) {
+    setCards(cards.filter(c => 
+      c.nextId !== i
+    ))
   }
 
-  //console.log(cards)
+  console.log(formData)
+  console.log(cards)
 
   return (
     <div>
@@ -55,8 +54,10 @@ function App() {
         
             <Card 
               key={i.id}
+              nextId={i.nextId}
               url={i.url}
               caption={i.caption}
+              removeCard={removeCard}
             />
           ))}
         </div>
