@@ -18,7 +18,13 @@ export default function Form(props) {
         props.setFormData(prevFormData => {return {
             ...prevFormData, [name]: value
         }})
-        props.setErrorMessage(false)
+        /*
+        if(props.formData.url === "" || props.formData.caption === "") {
+            props.setErrorMessage(true)
+        } else {
+            props.setErrorMessage(false)
+        }
+        */
     }
 
     function handleCancel(e) {
