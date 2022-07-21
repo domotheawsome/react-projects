@@ -1,79 +1,81 @@
 import React from "react"
 
-export default function Form() {
+export default function Form(props) {
 
-    const initialFormData = {url: "", caption: "", accept: false, cancel: false}
+    //const initialFormData = {url: "", caption: "", accept: false, cancel: false}
 
-    const [dialog, setDialog] = React.useState(false)
-    const [formData, setFormData] = React.useState(initialFormData)
+    //const [dialog, setDialog] = React.useState(false)
+    //const [formData, setFormData] = React.useState(initialFormData)
 
      
     function toggleDialog(e) {
             e.preventDefault()
-            setDialog(prevDialog=>!prevDialog)
+            props.setDialog(prevDialog=>!prevDialog)
     }
 
     function handleChange(e) {
         const {name, value} = e.target
-        setFormData(prevFormData => {return {
+        props.setFormData(prevFormData => {return {
             ...prevFormData, [name]: value
         }})
     }
 
-    function handleAccept() {
-        
-    }
-
     function handleCancel(e) {
         e.preventDefault()
-        setFormData(initialFormData)
-        setDialog(prevDialog=>!prevDialog)
+        props.setFormData(props.initialFormData)
+        props.setDialog(prevDialog=>!prevDialog)
     }
 
-// note to myself:
 
-// change it so the state is in the parent and the child updates the state
-// pass callback functions as props and have the child update it 
-// that way i can access form data in the parent (and also have state in the parent which is good practice)
 
     return(
         <div>
-        
-            <button onClick={toggleDialog}>Open Photo Entry Dialog</button>
-            {dialog && 
+            <button 
+            className="btn btn-outline-dark button--dialog" onClick={toggleDialog}>{props.dialog ? "Close" : "Open"} Photo Entry Dialog</button>
+            {props.dialog && 
             <form>
-                <input 
+                <div className="form-group">
+                <label>Photo URL</label>
+                <input
+                    className="form-control"
                     name="url" 
-                    placeholder="Enter Photo URL" 
+                    placeholder="Enter URL" 
                     type="text" 
-                    value={formData.url}
+                    value={props.formData.url}
                     onChange={handleChange}
                 />
+                </div>
+                <div className="form-group">
+                <label>Photo Caption</label>
                 <input 
+                    className="form-control"
                     name="caption" 
                     placeholder="Enter Caption" 
                     type="text" 
-                    value={formData.caption}
+                    value={props.formData.caption}
                     onChange={handleChange}
                 />
+                </div>
+                <div className="button--submit">
                 <button 
-                    type="submit"
+                    className="btn btn-outline-dark"
                     name="accept"
-                >
-                    Accept
+                    onClick={props.addCard}
+                > 
+                    Accept 
                 </button>
                 <button 
+                    className="btn btn-outline-dark"
                     type="reset"
                     name="cancel"
                     onClick={handleCancel}
                 >
                     Cancel
                 </button>
+                </div>
             </form>
             
             }
-       
-        <h1>hi</h1>
         </div>
     )
 }
