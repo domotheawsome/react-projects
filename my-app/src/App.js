@@ -23,9 +23,9 @@ function App() {
     e.preventDefault() 
 
     if(formData.url === "" || formData.caption === "") {
-      setErrorMessage(prev => !prev)
+      setErrorMessage(true)
     } else {
-      setCards(prevCards => [...prevCards, {nextId: cards.length, url: formData.url, caption: formData.caption}])
+      setCards(prevCards => [{nextId: cards.length, url: formData.url, caption: formData.caption}, ...prevCards])
       setFormData(initialFormData)
     }
   }

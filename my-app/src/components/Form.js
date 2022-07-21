@@ -11,6 +11,7 @@ export default function Form(props) {
     function toggleDialog(e) {
             e.preventDefault()
             props.setDialog(prevDialog=>!prevDialog)
+            props.setErrorMessage(false)
     }
 
     function handleChange(e) {
@@ -18,13 +19,9 @@ export default function Form(props) {
         props.setFormData(prevFormData => {return {
             ...prevFormData, [name]: value
         }})
-        /*
-        if(props.formData.url === "" || props.formData.caption === "") {
-            props.setErrorMessage(true)
-        } else {
-            props.setErrorMessage(false)
-        }
-        */
+
+        props.setErrorMessage(false)
+
     }
 
     function handleCancel(e) {
