@@ -1,7 +1,9 @@
 import React from "react"
 
-export default function Display() {
+export default function Display(props) {
+
+
     return (
-        <h1>hi</h1>
+        <h1>{props.calcData}</h1>
     )
 }
