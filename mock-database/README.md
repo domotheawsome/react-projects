@@ -1,4 +1,4 @@
-# Photo Library
+# Star Wars Database
 
 This is a mock database based off data taken from the StarWars API that allows the user to search and populate data. This project implements React Router and various React Hooks. 
 
