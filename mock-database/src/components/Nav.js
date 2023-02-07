@@ -29,6 +29,7 @@ export default function Nav() {
                         <NavLink className="nav-link" to="/planets">Planets</NavLink>
                     </li>
                 </ul>
+                <p className="navbar-brand name marg">Ariel Meshorer</p>
                 </div>
             </div>
             <Outlet />

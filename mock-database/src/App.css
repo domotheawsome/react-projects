@@ -81,6 +81,10 @@ nav {
     margin-top:15px;
 }
 
+.name {
+    margin-left: auto;
+}
+
 .error {
     margin-top: 10px;
 }
