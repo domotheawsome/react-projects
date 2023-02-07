@@ -17,6 +17,12 @@ export default function PersonCard({ data }) {
 
     const films = itemData.films
 
+    // i cannot seem to figure out how to navigate to the 404 page from the /people /planet /film url. i.e. the user inputs /people/1392183091, i cannot figure out how to navigate to the 404 page.
+
+    // so far i attempted to solve it via the Navigate hook, seems to be futile. i also tinkered with the routes in App.js to see if i can accommodate the bad url there. still nothing
+
+    // conceptually, i think the best bet is to use some level of hook to navigate the user to the 404 page. ideally i would use the navigate hook but it doesn't seem to be working. i'll continue thinking about this.. 
+
     if(!itemData){
         return (<Navigate replace to="/404" />)
     }
