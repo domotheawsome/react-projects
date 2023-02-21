@@ -61,3 +61,17 @@ nav {
     font-weight: 400;
     font-weight: medium;
 }
+
+.desc {
+    color:#ababab;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.mb {
+    margin-bottom: 10px;
+}

@@ -22,9 +22,12 @@ function Search({ query }) {
         <div >
             
             <div className='container'>
+                <div className='desc'>
                 <p>Enter your desired City to recieve weather data from!</p>
                 <p>Please input in the format "City,State,Country".</p>
-            <form onSubmit={e => {
+                </div>
+               
+            <form className='mb' onSubmit={e => {
                 e.preventDefault()
                 setSearchParams({ q: inputQuery })
             }}>
@@ -32,14 +35,14 @@ function Search({ query }) {
                 <button type="submit">Search</button>
             </form>
             
-                {error && <ErrorContainer>An error occurred...</ErrorContainer>}
+                {error && <ErrorContainer>An error occurred... make sure your input is valid.</ErrorContainer>}
                 {!error && !loading && repos.length === 0 && (
-                    <p>No results found</p>
+                    <p>Input something into the search bar!</p>
                 )}
                 {!error && !loading && repos.length > 0 && (
                     <Card repos={repos} />
                 )}
-                {loading && <Spinner />}
+                {!error && loading && <Spinner />}
             </div>
                     </div>
                     )
