@@ -6,4 +6,4 @@ This project was fully adapted from Rob Hess's CS 499 Advanced Web Dev Course. I
 
 I did not complete this project as part of this class. Just found the guidelines <a href="https://github.com/MarkleyO/CS499-Advanced-Web-Development/tree/main/assignment-2-MarkleyO">here</a> and decided to take a shot at it. 
 
-#### Deployment: https://react-projects-lac.vercel.app/
+#### Deployment: 
